@@ -31,10 +31,12 @@ function calcInvoice({sum, discountMinSum, discountPart, shippingFreeMinSum, shi
     let productsSum = sum;
     let discountSum = calcDiscount(sum, discountMinSum, discountPart);
 
-    let totalSum = sum - discountMinSum - discountPart;
+    let totalSum 
+    
+    totalSum = sum;
+    totalSum = sum - discountMinSum - discountPart; 
 
     let shippingSum = calcShipping(totalSum, shippingFreeMinSum, shippingPrice); // не изменяйте эту строку!!!
-
     totalSum = sum - discountMinSum - discountPart + shippingFreeMinSum + shippingPrice;
 
     let freeShipping = shippingSum == 0; // запишите без использования if или любых других условий: // если shippingSum равно нулю, то freeShipping должна быть равна true, иначе freeShipping должна быть равна false
