@@ -1,51 +1,20 @@
 
- {
-    data: {
-      client: "Иван +7(987)65-43-210",
-      order: {
-        address: "ул. Ленина, дом 2, 4 подъезд, 5 этаж, кв. 53",
-        sum: 900
-       },
-       goods: [
-         {
-           title: "Пицца",
-           count: 2
-         }
-      ]
-    }
- };
-
 function sendRequest(name, phone, address, goods, sum) {
-    let data = {
-      client: {
-        name,
-        phone
-      },
-      order: {
-        address = {
-          street,
-          house,
-          entrance,
-          floor,
-          flat,
-        },
-        sum
-      },
-      goods: [
-        title,
-        count
-      ]
-  };
+  let data = {goods: [], order: {}};
+  
+  let countOfGoods = goods.length;
 
-    let countOfGoods = goods.length;
+  let goods = {title, count};
 
-    for (let i = 0; i <= countOfGoods; i += 1) {
+  for (let i = 0; i < countOfGoods; i += 1) {
         data.goods.push(goods[i].title);
+        data.goods.push(goods[i].count);
     }
 
-    data.order.address = "" + "ул. " + street + "," + "дом  " + house + "," + entrance + " подъезд" + "," + floor + " этаж" + "," + "кв " + flat;
+    address = "" + "ул. " + address.street + "," + "дом  " + address.house + "," + address.entrance + " подъезд" + "," + address.floor + " этаж" + "," + "кв " + address.flat;
+    data.order.address = address
     data.order.sum = sum;
-    data.client = "" + name + " " + phone;
+    data.client = name + " " + phone;
 
     let jsonData = JSON.stringify({data});
 
